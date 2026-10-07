@@ -24,6 +24,12 @@ pipeline {
     steps {
         bat 'python -m pytest'
     }
+     
 }
+}
+post {
+    always {
+        junit 'reports/junit.xml'
     }
+}
 }
