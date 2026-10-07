@@ -14,5 +14,11 @@ pipeline {
                 bat 'python -m pip install -r requirements.txt'
             }
         }
+
+        stage('Install Playwright Browser') {
+            steps {
+                bat 'python -m playwright install chromium'
+            }
+        }
     }
 }
