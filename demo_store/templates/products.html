@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Products | Demo Store{% endblock %}
+{% block content %}
+<h1>Products</h1>
+<p>Welcome, {{ session['username'] }}.</p>
+<div class="products">
+  {% for product in products %}
+  <article aria-label="{{ product.name }}">
+    <h2><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a></h2>
+    <p>{{ product.description }}</p>
+    <p aria-label="Price">{{ product.price_cents | money }}</p>
+    <p>Available stock: {{ product.stock }}</p>
+    <form action="{{ url_for('cart_add', product_id=product.id) }}" method="post">
+      <button type="submit">Add {{ product.name }} to cart</button>
+    </form>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

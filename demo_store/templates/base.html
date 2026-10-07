@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Demo Store{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='store.css') }}">
+</head>
+<body>
+  <header>
+    <span class="brand">Demo Store</span>
+    {% if session.get('username') %}
+    <nav aria-label="Store navigation">
+      <a href="{{ url_for('catalog') }}">Products</a>
+      <a href="{{ url_for('cart') }}">Cart</a>
+      <form action="{{ url_for('logout') }}" method="post">
+        <button type="submit">Log out</button>
+      </form>
+    </nav>
+    {% endif %}
+  </header>
+  <main>
+    {% if errors %}
+    <div role="alert">
+      <ul>{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>Fictional store for QA practice. Prices are in CAD.</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+body { margin: 0; font-family: system-ui, sans-serif; color: #1c2833; background: #f4f6f7; }
+header { display: flex; align-items: center; gap: 2rem; padding: 1rem 2rem; background: #16324f; color: white; }
+.brand { font-weight: 700; font-size: 1.3rem; }
+nav { display: flex; align-items: center; gap: 1rem; }
+nav a { color: white; }
+nav form { margin: 0; }
+main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+form { max-width: 420px; margin-bottom: 1rem; }
+label { display: block; margin: .8rem 0 .3rem; }
+input { box-sizing: border-box; width: 100%; padding: .6rem; border: 1px solid #596775; border-radius: 4px; }
+button, .button { display: inline-block; margin-top: .7rem; padding: .65rem 1rem; background: #185b48; color: white; border: 0; border-radius: 4px; cursor: pointer; text-decoration: none; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #df8e00; outline-offset: 3px; }
+.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+article, section { background: white; padding: 1.2rem; border: 1px solid #d5dbdb; border-radius: 6px; margin-bottom: 1rem; }
+a { color: #174b8c; }
+[role="alert"] { background: #fff1f1; border: 1px solid #b53535; padding: .5rem; color: #892727; }
+[aria-label="Cart total"], [aria-label="Order total"] { font-size: 1.3rem; font-weight: 700; }
+footer { padding: 1rem 2rem; color: #52616b; }

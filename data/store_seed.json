@@ -1,0 +1,11 @@
+{
+  "users": [
+    {"username": "alex.demo", "password": "DemoPass123!", "full_name": "Alex Morgan"},
+    {"username": "jamie.demo", "password": "DemoPass456!", "full_name": "Jamie Lee"}
+  ],
+  "products": [
+    {"id": 1, "name": "Trail Backpack", "description": "A lightweight backpack for day trips.", "price_cents": 4500, "stock": 8},
+    {"id": 2, "name": "Steel Water Bottle", "description": "A reusable bottle with a leakproof lid.", "price_cents": 1800, "stock": 10},
+    {"id": 3, "name": "Desk Notebook", "description": "A lined notebook for everyday notes.", "price_cents": 1200, "stock": 6}
+  ]
+}

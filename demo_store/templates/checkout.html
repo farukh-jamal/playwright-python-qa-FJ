@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Checkout | Demo Store{% endblock %}
+{% block content %}
+<h1>Checkout</h1>
+<p role="status" aria-label="Order total">{{ cart.total_cents | money }}</p>
+<form action="{{ url_for('checkout') }}" method="post" novalidate>
+  {% for field, label in [('full_name', 'Full name'), ('address', 'Street address'),
+                         ('city', 'City'), ('postal_code', 'Postal code'), ('email', 'Email')] %}
+  <label for="{{ field }}">{{ label }}</label>
+  <input id="{{ field }}" name="{{ field }}" value="{{ customer.get(field, '') }}"
+         type="{{ 'email' if field == 'email' else 'text' }}" required>
+  {% endfor %}
+  <button type="submit">Place order</button>
+</form>
+{% endblock %}

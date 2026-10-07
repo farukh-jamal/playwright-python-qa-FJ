@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Order confirmation | Demo Store{% endblock %}
+{% block content %}
+<h1>Order confirmed</h1>
+<p role="status" aria-label="Order number">{{ order.order_id }}</p>
+<p>Thank you, {{ order.customer.full_name }}.</p>
+<p role="status" aria-label="Order total">{{ order.total_cents | money }}</p>
+<ul>{% for item in order['items'] %}<li>{{ item.quantity }} × {{ item.name }}</li>{% endfor %}</ul>
+<a href="{{ url_for('catalog') }}">Continue shopping</a>
+{% endblock %}

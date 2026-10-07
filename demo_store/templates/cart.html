@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Cart | Demo Store{% endblock %}
+{% block content %}
+<h1>Your cart</h1>
+{% if cart['items'] %}
+  {% for item in cart['items'] %}
+  <section aria-label="{{ item.name }}">
+    <h2>{{ item.name }}</h2>
+    <p>Unit price: {{ item.price_cents | money }}</p>
+    <p aria-label="Line total">{{ item.line_total_cents | money }}</p>
+    <form action="{{ url_for('cart_update', product_id=item.id) }}" method="post" novalidate>
+      <label for="quantity-{{ item.id }}">Quantity for {{ item.name }}</label>
+      <input id="quantity-{{ item.id }}" name="quantity" type="number" min="1"
+             max="{{ item.stock }}" value="{{ item.quantity }}" required>
+      <button type="submit">Update {{ item.name }}</button>
+    </form>
+    <form action="{{ url_for('cart_remove', product_id=item.id) }}" method="post">
+      <button type="submit">Remove {{ item.name }}</button>
+    </form>
+  </section>
+  {% endfor %}
+  <a class="button" href="{{ url_for('checkout') }}">Checkout</a>
+{% else %}
+  <p>Your cart is empty.</p>
+{% endif %}
+<p role="status" aria-label="Cart item count">{{ cart.item_count }}</p>
+<p role="status" aria-label="Cart total">{{ cart.total_cents | money }}</p>
+<a href="{{ url_for('catalog') }}">Continue shopping</a>
+{% endblock %}

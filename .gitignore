@@ -1,0 +1,28 @@
+# Local settings and real secrets. The example contains settings only.
+.env
+.env.*
+!.env.example
+
+# Local Python environments and caches.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Generated output belongs in local folders or CI artifacts, never source control.
+reports/
+test-results/
+playwright/.cache/
+*.log
+*.zip
+
+# Editor and operating system files.
+.idea/
+.DS_Store
+Thumbs.db
