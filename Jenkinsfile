@@ -20,5 +20,10 @@ pipeline {
                 bat 'python -m playwright install chromium'
             }
         }
+        stage('Run Automated Tests') {
+    steps {
+        bat 'python -m pytest'
+    }
+}
     }
 }
