@@ -153,3 +153,7 @@ I built this project as a QA automation portfolio to demonstrate practical exper
 Farukh Jamal
 
 QA Automation Engineer
+
+## CI/CD
+
+Automated tests are executed through a Jenkins CI/CD pipeline.
