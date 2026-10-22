@@ -140,9 +140,44 @@ pytest --junitxml=reports/junit.xml --html=reports/report.html --self-contained-
 
 ## CI/CD
 
-The repository includes a `.gitlab-ci.yml` configuration for automated test execution in a CI/CD pipeline.
+This project demonstrates automated test execution using Jenkins, GitHub Actions, and GitLab CI/CD.
 
-The pipeline installs project dependencies and Playwright browser dependencies before executing the automated test suite.
+### Jenkins
+
+The automated test suite is integrated with a Jenkins pipeline using the `Jenkinsfile`.
+
+The Jenkins pipeline checks out the source code, prepares the Python environment, installs the required dependencies and Playwright browser, executes the pytest test suite, and publishes the test results.
+
+The latest Jenkins execution successfully completed all 73 automated tests, including API and UI tests.
+
+### GitHub Actions
+
+GitHub Actions is configured in `.github/workflows/qa-tests.yml`.
+
+The workflow is triggered automatically when code is pushed to the `main` branch or when a pull request targets `main`.
+
+The workflow:
+
+1. Checks out the repository.
+2. Sets up Python 3.12.
+3. Installs the project dependencies.
+4. Installs Playwright Chromium and required browser dependencies.
+5. Executes the complete pytest automation suite.
+6. Generates HTML and JUnit XML test reports.
+7. Uploads the test reports as a GitHub Actions artifact.
+
+The latest GitHub Actions execution successfully completed all 73 automated tests with:
+
+- 73 passed
+- 0 failed
+- 0 skipped
+- 0 errors
+
+The generated `report.html` and `junit.xml` files are preserved as downloadable workflow artifacts.
+
+### GitLab CI/CD
+
+The repository also includes a `.gitlab-ci.yml` configuration for automated test execution using GitLab CI/CD.
 
 ## Purpose
 
@@ -153,7 +188,3 @@ I built this project as a QA automation portfolio to demonstrate practical exper
 Farukh Jamal
 
 QA Automation Engineer
-
-## CI/CD
-
-Automated tests are executed through a Jenkins CI/CD pipeline.
