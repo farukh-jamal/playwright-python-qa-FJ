@@ -182,6 +182,7 @@ The repository also includes a `.gitlab-ci.yml` configuration for automated test
 ## Purpose
 
 I built this project as a QA automation portfolio to demonstrate practical experience with Python, Playwright, pytest, UI automation, API testing, Page Object Model design, test framework organization, and CI/CD.
+The project also demonstrates automated CI validation for changes submitted through GitHub pull requests.
 
 ## Author
 
